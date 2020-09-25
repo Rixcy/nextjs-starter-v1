@@ -82,10 +82,10 @@
 }
 
 .card {
+    @apply text-center;
     margin: 1rem;
     flex-basis: 45%;
     padding: 1.5rem;
-    text-align: left;
     color: inherit;
     text-decoration: none;
     border: 1px solid #eaeaea;
