@@ -1,53 +1,69 @@
 import Head from 'next/head'
-import { ExampleComponent } from '../components/ExampleComponent'
-import styles from '../styles/Home.module.css'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTransition, animated } from 'react-spring'
 
 export default function Home() {
+    const ref = useRef([])
+    const [items, setItems] = useState<any[]>([])
+
+    const transitions = useTransition(items, null, {
+        from: {
+            opacity: 0,
+            height: 0,
+            transform: 'perspective(600px) rotateX(0deg)',
+            color: '#8fa5b6',
+        },
+        enter: [
+            { opacity: 1, height: 80 },
+            { transform: 'perspective(600px) rotateX(180deg)', color: '#bd93f9' },
+            { transform: 'perspective(600px) rotateX(0deg)' },
+        ],
+        leave: [{ color: '#ff79c6' }, { opacity: 0, height: 0 }],
+        update: { color: '#50fa7b' },
+    })
+
+    const reset = useCallback(() => {
+        ref.current.map(clearTimeout)
+        ref.current = []
+        setItems([])
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 500))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'TypeScript', 'Starter']), 2000))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 5000))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'StoryBook', 'Starter']), 8000))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 10000))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'TailwindCSS', 'Starter']), 12000))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 13000))
+    }, [])
+
+    useEffect(() => void reset(), [])
+
     return (
-        <div className={styles.container}>
+        <a
+            href="https://github.com/Rixcy/nextjs-starter"
+            rel="nofollow noreferrer"
+            className="block"
+        >
             <Head>
                 <title>Create Next App</title>
             </Head>
 
-            <main className={styles.main}>
-                <h1 className="text-4xl text-center">
-                    Welcome to <a href="https://nextjs.org">Next.js!</a>
-                </h1>
-
-                <ExampleComponent text="This is an example component." />
-
-                <p className={styles.description}>
-                    Get started by editing <code className={styles.code}>pages/index.js</code>
-                </p>
-
-                <div className={styles.grid}>
-                    <a href="https://nextjs.org/docs" className={styles.card}>
-                        <h3>Documentation &rarr;</h3>
-                        <p>Find in-depth information about Next.js features and API.</p>
-                    </a>
-
-                    <a href="https://nextjs.org/learn" className={styles.card}>
-                        <h3>Learn &rarr;</h3>
-                        <p>Learn about Next.js in an interactive course with quizzes!</p>
-                    </a>
-
-                    <a
-                        href="https://github.com/vercel/next.js/tree/master/examples"
-                        className={styles.card}
+            <main
+                className="mx-auto h-screen overflow-hidden m-0 p-0 relative w-full flex justify-center items-center max-w-xs flex-col"
+                style={{ maxWidth: '450px' }}
+            >
+                {transitions.map(({ item, props: rest, key }) => (
+                    <animated.div
+                        className="overflow-hidden w-full flex justify-start align-center text-4xl lg:text-6xl font-extrabold uppercase whitespace-no-wrap"
+                        key={key}
+                        style={{ ...rest, willChange: 'transform opacity height' }}
+                        onClick={reset}
                     >
-                        <h3>Examples &rarr;</h3>
-                        <p>Discover and deploy boilerplate example Next.js projects.</p>
-                    </a>
-
-                    <a
-                        href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                    >
-                        <h3>Deploy &rarr;</h3>
-                        <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-                    </a>
-                </div>
+                        <animated.div style={{ overflow: 'hidden', height: '80px' }}>
+                            {item}
+                        </animated.div>
+                    </animated.div>
+                ))}
             </main>
-        </div>
+        </a>
     )
 }

@@ -29,8 +29,12 @@ class MyDocument extends Document {
                         href="icons/favicon-16x16.png"
                     />
                     <link rel="manifest" href="icons/site.webmanifest" />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+                        rel="stylesheet"
+                    />
                 </Head>
-                <body>
+                <body className="font-body bg-gray-900">
                     <Main />
                     <NextScript />
                 </body>
