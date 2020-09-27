@@ -26,7 +26,7 @@ export default function Home() {
         ref.current.map(clearTimeout)
         ref.current = []
         setItems([])
-        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 500))
+        ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 1000))
         ref.current.push(setTimeout(() => setItems(['Next.js', 'TypeScript', 'Starter']), 2000))
         ref.current.push(setTimeout(() => setItems(['Next.js', 'Starter']), 5000))
         ref.current.push(setTimeout(() => setItems(['Next.js', 'StoryBook', 'Starter']), 8000))
