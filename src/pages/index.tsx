@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { ExampleComponent } from '../components/ExampleComponent'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -12,6 +13,8 @@ export default function Home() {
                 <h1 className="text-4xl text-center">
                     Welcome to <a href="https://nextjs.org">Next.js!</a>
                 </h1>
+
+                <ExampleComponent text="This is an example component." />
 
                 <p className={styles.description}>
                     Get started by editing <code className={styles.code}>pages/index.js</code>
