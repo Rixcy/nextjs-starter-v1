@@ -1,4 +1,4 @@
-# Next.js Starter by [Rixcy](https://github.com/Rixcy)
+# [Next.js Starter](https://github.com/Rixcy/nextjs-starter) by [Rixcy](https://github.com/Rixcy)
 
 ![Next.js starter preview](https://user-images.githubusercontent.com/11819124/94376903-64ae0800-0115-11eb-815b-46caa7f9b295.png)
 
