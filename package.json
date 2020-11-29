@@ -4,12 +4,12 @@
     "private": true,
     "scripts": {
         "build": "next build",
+        "build-storybook": "build-storybook --docs",
         "commit": "git-cz",
         "dev": "next dev",
         "lint": "npx prettier --write .",
         "sort": "sort-package-json",
         "start": "next start",
-        "build-storybook": "build-storybook --docs",
         "storybook": "start-storybook -p 6006"
     },
     "husky": {
@@ -31,6 +31,11 @@
             "npx prettier --write"
         ]
     },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
     "dependencies": {
         "next": "9.5.3",
         "react": "16.13.1",
@@ -38,8 +43,8 @@
         "react-spring": "^8.0.27"
     },
     "devDependencies": {
-        "@commitlint/cli": "^11.0.0",
-        "@commitlint/config-conventional": "^11.0.0",
+        "@commitlint/cli": "^8.3.3",
+        "@commitlint/config-conventional": "^8.3.3",
         "@storybook/addon-actions": "^6.0.22",
         "@storybook/addon-essentials": "^6.0.22",
         "@storybook/addon-links": "^6.0.22",
@@ -58,5 +63,8 @@
         "sort-package-json": "^1.46.0",
         "tailwindcss": "^1.8.10",
         "typescript": "^4.0.3"
+    },
+    "czConfig": {
+        "path": "node_modules/cz-conventional-changelog"
     }
 }
