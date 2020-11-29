@@ -1,10 +1,11 @@
 {
   "name": "nextjs-starter",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook --docs",
+    "check-todos": "leasot src/**/*.{js,jsx,ts,tsx}",
     "commit": "git-cz",
     "dev": "next dev",
     "lint": "npx prettier --write .",
@@ -29,6 +30,9 @@
     ],
     "**/*.{ts,tsx,js,jsx}": [
       "npx prettier --write"
+    ],
+    "package.json": [
+      "npx sort-package-json"
     ]
   },
   "config": {
@@ -56,6 +60,7 @@
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.3.0",
+    "leasot": "^11.4.0",
     "lint-staged": "^10.4.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
