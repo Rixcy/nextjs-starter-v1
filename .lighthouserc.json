@@ -1,7 +1,7 @@
 {
-    "ci": {
-        "collect": {
-            "staticDistDir": ".next"
-        }
+  "ci": {
+    "collect": {
+      "staticDistDir": ".next"
     }
+  }
 }
