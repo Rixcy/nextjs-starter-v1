@@ -6,7 +6,7 @@ export default {
   component: ExampleComponent,
 }
 
-const baseArgs = {}
+const baseArgs: ExampleComponentProps = {}
 
 export const Default = (args: ExampleComponentProps) => (
   <ExampleComponent {...args} />
