@@ -4,6 +4,18 @@
 
 ## Getting Started
 
+### Using the starter
+
+To create a copy of this starter, we recommend using [degit](https://github.com/Rich-Harris/degit), which is a cleaner alternative to using git clone.
+
+```bash
+$ npx degit Rixcy/nextjs-starter
+# Or with a specified name
+$ npx degit Rixcy/nextjs-starter my-project-name
+```
+
+### Developing
+
 First, run the development server:
 
 ```bash
